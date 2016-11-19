@@ -106,9 +106,40 @@ angular.module('starter', ['ionic',
         controller: 'AccountCtrl'
       }
     }
-  });
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
+    })
+
+    .state('tab-cat', {
+      url: '/tab-cat',
+      abstract: true,
+      templateUrl: 'templates/tabs-categories.html',
+      controller: 'CategoriesCtrl'
+    })
+
+    // Each tab has its own nav history stack:
+
+    .state('tab-cat.list', {
+      url: '/list',
+      views: {
+        'tab-list': {
+          templateUrl: 'templates/tab-categories-list.html'
+        }
+      }
+    })
+    .state('tab-cat.selected', {
+      url: '/selected',
+      views: {
+        'tab-selected': {
+          templateUrl: 'templates/tab-categories-selected.html'
+        }
+      }
+    })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/login');
 
 });
