@@ -40,7 +40,7 @@ angular.module('starter.controllers', [])
    });
   };
 
-  $scope.showConfirm()
+  //$scope.showConfirm()
 
   function slideTo(index){
     $ionicSlideBoxDelegate.slide(index);
@@ -484,6 +484,11 @@ angular.module('starter.controllers', [])
   }
 })
 .controller('CategoriesCtrl', function($scope, $state) {
+
+  if(typeof $scope.category == 'undefined'){
+    $state.go('tab-cat.list')
+  }
+
   $scope.nextStep = function () {
     $state.go('tab.dash')
   };
