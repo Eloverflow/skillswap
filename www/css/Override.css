@@ -1,0 +1,37 @@
+.round-profile {
+
+}
+
+.img-box{
+  border-top-right-radius: 6px !important;
+  border-top-left-radius: 6px !important;
+
+
+
+  margin-left: -1px;
+  margin-right: -1px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ddd;
+  box-shadow: 0 8px 6px -6px #ccc;
+}
+
+
+.star-right i{
+  float: right;
+
+}
+
+.no-pad{
+  padding: 0!important;
+}
+
+.bar-header {
+  height: 60px !important;
+}
+
+.button.button-assertive.button-outline  {
+  border-color: #0a3756;
+  background: transparent;
+  color: #0a3756;
+}
