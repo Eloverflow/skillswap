@@ -59,100 +59,188 @@
             - We start off with an ng-if so that the cards are not generated
               unless $scope.cards is not 'null'
           ************************* -->
-          <div ng-if="cards.active">
-            <td-cards on-touch="onTouch()" on-release="onRelease()" ng-click="showProfile()">
-              <td-card ng-style="$index > 3 &&  {'display':'none'}" ng-repeat="card in cards.active" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)">
-                <div class="image">
-                  <div class="no-text">NOPE</div>
-                  <div class="yes-text">LIKE</div>
-                  <!-- *************************
-                    Discard
-                    - The card is removed from the deck and a fly away animation is triggered.
-                    - onClickTransitionOut is found in ionic.tdcards.js
-                    - Animation can be customized by changing defaults
-                  ************************* -->
-                  <!-- <div class="discard" ng-click="onClickTransitionOut(card)">DISCARD</div> -->
+          <div ng-if="cards.active" class="flip-container">
+            <div class="flipper clearfix">
+              <div class="front">
+                <td-cards on-touch="onTouch()" on-release="onRelease()" >
+                  <td-card ng-style="$index > 3 &&  {'display':'none'}" ng-repeat="card in cards.active" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)">
+                    <div class="image">
+                      <!-- *************************
+                        Discard
+                        - The card is removed from the deck and a fly away animation is triggered.
+                        - onClickTransitionOut is found in ionic.tdcards.js
+                        - Animation can be customized by changing defaults
+                      ************************* -->
+                      <!-- <div class="discard" ng-click="onClickTransitionOut(card)">DISCARD</div> -->
 
 
-                  <div class="img-box">
-                    <img ng-src="{{ card.image }}">
-                  </div>
+                      <div class="img-box" ng-click="flip()">
+                        <img ng-src="{{ card.image }}">
+                      </div>
 
-                  <div class="item">
-                    <div class="row">
-                        <div class="col col-50">
-                          <h2>Adam, 26</h2>
-                          <p>
-                            Ionic Engineer
-                            <!-- <i class="ion-ios-book color-coral font-150 pull-right"></i> -->
-                          </p>
+                      <div class="item">
+                        <div class="row">
+                            <div class="col col-50">
+                              <h2>Adam, 26</h2>
+                              <p>
+                                Ionic Engineer
+                                <!-- <i class="ion-ios-book color-coral font-150 pull-right"></i> -->
+                              </p>
+                            </div>
+                            <div class="col col-50">
+                              <div class="col star-right">
+                                <i class="ion ion-star"></i>
+                                <i class="ion ion-star"></i>
+                                <i class="ion ion-star"></i>
+                                <i class="ion ion-star"></i>
+                                <i class="ion ion-star"></i>
+                            </div>
+                          </div>
                         </div>
-                        <div class="col col-50">
+                      </div>
+
+
+                      <div class="item">
+                            <h2>Skills</h2>
+                            <button class="button margin-top-5 button-outline button-small button-assertive">English&nbsp;<i style="color: darkred;" class="icon ion-checkmark"></i></button>
+                            <button class="button margin-top-5 button-outline button-small button-assertive">Juggling</button>
+                            <button class="button margin-top-5 button-outline button-small button-assertive">Ski</button>
+                      </div>
+                      <div style="height: 54px;" class="item last no-pad">
+                             <div class="swapskill-cancel" ng-click="like(false)"></div>
+                             <div class="swapskill-checkmark" ng-click="like(true)"></div>
+                      </div>
+                      <!--<div class="item last">
+                        <div class="row no-pad">
+                          <div class="col ">
+                            <h2>Rating</h2>
+                          </div>
                           <div class="col star-right">
                             <i class="ion ion-star"></i>
                             <i class="ion ion-star"></i>
                             <i class="ion ion-star"></i>
                             <i class="ion ion-star"></i>
                             <i class="ion ion-star"></i>
+                          </div>
+                        </div>
+                      </div>-->
+
+
+                    </div>
+                  </td-card>
+                  <!-- *************************
+                    End Card
+                    - 'drag' is set to false. The user cannot drag it.
+                    - 'refreshCards()' reloads all cards that have NOT been discarded.
+                  ************************* -->
+                  <td-card id="end-card" drag="false">
+                    <!-- <div class="tinder-refresh-button" ng-click="refreshCards()"></div> -->
+                    <div class="disable-user-behavior">
+                      <!-- <div class="tinder-refresh-button" ng-click="refreshCards()"></div> -->
+                    </div>
+                    <!-- <i class="icon ion-ios-refresh disable-user-behavior" ng-click="refreshCards()"></i> -->
+                  </td-card>
+                </td-cards>
+              </div>
+              <div class="back">
+                <td-cards on-touch="onTouch()" on-release="onRelease()" ng-click="flip()">
+                  <td-card ng-style="$index > 3 &&  {'display':'none'}" ng-repeat="card in cards.active" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)">
+                    <div class="image">
+                      <!-- *************************
+                        Discard
+                        - The card is removed from the deck and a fly away animation is triggered.
+                        - onClickTransitionOut is found in ionic.tdcards.js
+                        - Animation can be customized by changing defaults
+                      ************************* -->
+                      <!-- <div class="discard" ng-click="onClickTransitionOut(card)">DISCARD</div> -->
+
+                      <div class="img-box">
+                      </div>
+
+                      <div class="item prof">
+                        <div class="row">
+                          <div class="col">
+                            <h2>Adam, 26</h2>
+                            <p>
+                              Ionic Engineer
+                              <!-- <i class="ion-ios-book color-coral font-150 pull-right"></i> -->
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
+
+                      <hr class="super-special">
 
 
-                  <div class="item">
-                        <h2>Personal skills</h2>
+                      <div class="item prof multiple-button">
+                        <h2>Skills</h2>
                         <button class="button margin-top-5 button-outline button-small button-assertive">English&nbsp;<i style="color: darkred;" class="icon ion-checkmark"></i></button>
                         <button class="button margin-top-5 button-outline button-small button-assertive">Juggling</button>
-                        <button class="button margin-top-5 button-outline button-small button-assertive">Computer programming</button>
-                  </div>
-
-
-
-                  <div class="item last">
-                        <h2>Interested in</h2>
-                        <button class="button margin-top-5 button-outline button-small button-assertive">French&nbsp;<i style="color: darkred;" class="icon ion-checkmark"></i></button>
+                        <button class="button margin-top-5 button-outline button-small button-assertive">Ski</button>
+                        <button class="button margin-top-5 button-outline button-small button-assertive">Soccer</button>
                         <button class="button margin-top-5 button-outline button-small button-assertive">Administration</button>
-                        <button class="button margin-top-5 button-outline button-small button-assertive">Music</button>
-                  </div>
-                  <!--<div class="item last">
-                    <div class="row no-pad">
-                      <div class="col ">
-                        <h2>Rating</h2>
+                        <button class="button margin-top-5 button-outline button-small button-assertive">Spanish</button>
                       </div>
-                      <div class="col star-right">
-                        <i class="ion ion-star"></i>
-                        <i class="ion ion-star"></i>
-                        <i class="ion ion-star"></i>
-                        <i class="ion ion-star"></i>
-                        <i class="ion ion-star"></i>
+                    <!--  <div style="height: 54px;" class="item last no-pad">
+                        <div class="swapskill-cancel" ng-click="like(false)"></div>
+                        <div class="swapskill-checkmark" ng-click="like(true)"></div>
+                      </div>-->
+                      <!--<div class="item last">
+                        <div class="row no-pad">
+                          <div class="col ">
+                            <h2>Rating</h2>
+                          </div>
+                          <div class="col star-right">
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                            <i class="ion ion-star"></i>
+                          </div>
+                        </div>
+                      </div>-->
+
+                      <hr class="super-special">
+
+                      <div class="item prof">
+                        <h2>Rating</h2>
+                          <i class="ion ion-star"></i>
+                          <i class="ion ion-star"></i>
+                          <i class="ion ion-star"></i>
+                          <i class="ion ion-star"></i>
+                          <i class="ion ion-star"></i>
+                      </div>
+
+                      <hr class="super-special">
+
+                      <div class="item last cert">
+                        <h2>Certificate</h2>
+                        <img class="certificate" src="img/certificate.jpg">
                       </div>
                     </div>
-                  </div>-->
-
-
-                </div>
-              </td-card>
-              <!-- *************************
-                End Card
-                - 'drag' is set to false. The user cannot drag it.
-                - 'refreshCards()' reloads all cards that have NOT been discarded.
-              ************************* -->
-              <td-card id="end-card" drag="false">
-                <!-- <div class="tinder-refresh-button" ng-click="refreshCards()"></div> -->
-                <div class="disable-user-behavior">
-                  <!-- <div class="tinder-refresh-button" ng-click="refreshCards()"></div> -->
-                </div>
-                <!-- <i class="icon ion-ios-refresh disable-user-behavior" ng-click="refreshCards()"></i> -->
-              </td-card>
-            </td-cards>
+                  </td-card>
+                  <!-- *************************
+                    End Card
+                    - 'drag' is set to false. The user cannot drag it.
+                    - 'refreshCards()' reloads all cards that have NOT been discarded.
+                  ************************* -->
+                  <td-card id="end-card" drag="false">
+                    <!-- <div class="tinder-refresh-button" ng-click="refreshCards()"></div> -->
+                    <div class="disable-user-behavior">
+                      <!-- <div class="tinder-refresh-button" ng-click="refreshCards()"></div> -->
+                    </div>
+                    <!-- <i class="icon ion-ios-refresh disable-user-behavior" ng-click="refreshCards()"></i> -->
+                  </td-card>
+                </td-cards>
+              </div>
+            </div>
           </div>
 
-          <div class="tinder-buttons" ng-if="cards.active">
-              <div class="tinder-button  animated bounceIn" ng-click="like(false)"></div>
+         <!-- <div class="tinder-buttons" ng-if="cards.active">
+              <div class="tinder-button animated bounceIn" ng-click="like(false)"></div>
               <div class="info" ng-click="showProfile()"></div>
-              <div class="tinder-button  animated bounceIn" ng-click="like(true)"></div>
-          </div>
+              <div class="tinder-button animated bounceIn" ng-click="like(true)"></div>
+          </div>-->
     </ion-slide>
     <ion-slide on-drag-left="onTouch()" on-drag-right="onRelease()">
       <ion-content>
@@ -165,23 +253,18 @@
             Cancel
           </button>
         </div>
-        <div class="item item-divider bg-white uppercase color-red" style="border:none;">
-          Matches
-          <span class="badge-tinder gotham-book">3</span>
-        </div>
-        <div class="padding">
-          <ks-swiper-container initial-slide="0" loop="false" show-nav-buttons="false" slides-per-view="4" space-between="5" pagination-clickable="false">
-              <ks-swiper-slide class="swiper-slide" ng-repeat="s in ['max', 'ben', 'perry', 'adam', 'mike']">
-                  <img ng-src="img/{{s}}.png" class="img-circled">
-              </ks-swiper-slide>
-          </ks-swiper-container>
-        </div>
         <hr>
         <div class="item item-divider bg-white uppercase color-red" style="border:none;">Messages</div>
         <ion-list>
-            <ion-item class="item-light item-text-wrap item-avatar item-borderless item-icon-right" data-ng-repeat="blog in ['ben', 'max', 'mike', 'perry','ben', 'max', 'mike', 'perry'] track by $index" style="overflow:hidden;" ng-href="#/tab/dash/1">
+            <ion-item class="item-light item-text-wrap item-avatar item-borderless item-icon-right no-pad-right" data-ng-repeat="blog in ['ben', 'max', 'mike', 'perry','ben', 'max', 'mike', 'perry'] track by $index" style="overflow:hidden;" ng-href="#/tab/dash/1">
               <img ng-src="img/{{blog}}.png">
-              <h2 class="capitalize font-120">{{blog}}</h2>
+              <span class="capitalize font-120">{{blog}}</span>
+              <button ng-show="$index == 1 || $index == 4 || $index == 6|| $index == 0" class="button button-outline button-small button-assertive smaller-btn">Roller</button>
+              <button ng-show="$index == 2 || $index == 3 || $index == 4|| $index == 0" class="button button-outline button-small button-assertive smaller-btn">Ski</button>
+              <button ng-show="$index == 1 || $index == 2 || $index == 6" class="button button-outline button-small button-assertive smaller-btn">Java</button>
+              <button ng-show="$index == 2 || $index == 4 || $index == 5" class="button button-outline button-small button-assertive smaller-btn">Piano</button>
+              <button ng-show="$index == 1 || $index == 3 || $index == 7|| $index == 0" class="button button-outline button-small button-assertive smaller-btn">Painting</button>
+              <button ng-show="$index == 3 || $index == 5" class="button button-outline button-small button-assertive smaller-btn">Marketing</button>
               <p class="capitalize color-gray">Sent you a message</p>
               <hr class="item-hr">
             </ion-item>

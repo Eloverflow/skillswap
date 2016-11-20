@@ -6,14 +6,14 @@
   </div>
 
   <h1 class="title {{slideIndex ==1 ? 'color-red' : 'color-gray'}}" ng-click="slideTo(1)">
-    Category
+    {{category}}
   </h1>
 
 </ion-header-bar>
   <ion-content scroll="false" class="bg-intro" horizontal center center-justified >
     <div class="item item-input-inset">
       <label class="item-input-wrapper">
-        <input type="text" placeholder="{{category}}">
+        <input type="text" placeholder="Skills">
       </label>
       <button class="button button-small">
         <i style="font-size: 20px;" class="ion ion-search">
@@ -25,13 +25,12 @@
     <div class="bar bar-footer no-pad">
       <ion-scroll zooming="true" direction="x">
         <div style="width: 2000px; height: 44px;">
-          <button class="button margin-top-5 button-outline button-small button-assertive">French</button>
-          <button class="button margin-top-5 button-outline button-small button-assertive active">Nodejs</button>
-          <button class="button margin-top-5 button-outline button-small button-assertive active">Administration</button>
-          <button class="button margin-top-5 button-outline button-small button-assertive">Finance</button>
-          <button class="button margin-top-5 button-outline button-small button-assertive">French</button>
-          <button class="button margin-top-5 button-outline button-small button-assertive">French</button>
-          <button class="button margin-top-5 button-outline button-small button-assertive">French</button>
+          <button class="button margin-top-5 button-outline button-small button-assertive active">Skate</button>
+            <button class="button margin-top-5 button-outline button-small button-assertive {{ ski ? 'active': ''}}" ng-click="ski = !ski">Ski</button>
+          <button class="button margin-top-5 button-outline button-small button-assertive">Roller</button>
+          <button class="button margin-top-5 button-outline button-small button-assertive">Snowboard</button>
+          <button class="button margin-top-5 button-outline button-small button-assertive">Soccer</button>
+          <button class="button margin-top-5 button-outline button-small button-assertive">Football</button>
         </div>
       </ion-scroll>
     </div>

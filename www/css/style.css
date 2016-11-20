@@ -206,14 +206,14 @@ textarea.about-me{
   border:1px dotted #8e8e93 !important;
 }
 .color-red {
-  color: #ff3b30 !important;
+  color: #0A3756 !important;
 }
 .color-coral{
-  color: #e55 !important;
+  color: #2B364B !important;
 }
 
 .bg-color-red {
-  background-color: #ff3b30 !important;
+  background-color: #0A3756 !important;
 }
 .color-white {
   color: #ffffff !important;
@@ -370,7 +370,7 @@ textarea.about-me{
 
 .tinder-button:nth-child(3) {
   margin-left: -4px;
-  background: url(../img/heart.png);
+  background: url(../img/checkmark.png);
   background-color: white;
   background-size: 30px;
   background-position: center;
@@ -381,15 +381,15 @@ textarea.about-me{
   width: 40px;
   height: 40px;
   border-radius: 40px;
-  background: #FFF;
-  border: 5px solid #f0f0f0;
+  background: rgba(0,0,0,0);
+  border: 5px solid rgba(0,0,0,0);
   float: left;
-  box-shadow: 1px 1px 1px 0px #e9e9e9;
+  box-shadow: 1px 1px 1px 0px rgba(0,0,0,0);
   margin-top: 14px;
   margin-left: -4px;
 
-  background: url(../img/info.png);
-  background-color: white;
+ /* background: url(../img/info.png);*/
+  background-color: rgba(0,0,0,0);
   background-size: 15px;
   background-position: center;
   background-repeat: no-repeat;
@@ -491,7 +491,7 @@ textarea.about-me{
 }
 
 .swiper-pagination-bullet-active{
-  background-color: #e55 !important;
+  background-color: #2B364B !important;
 }
 
 
@@ -530,11 +530,11 @@ td-card img {
   margin-bottom: -5px;
   object-fit: cover;*/
 
-  height: 120px;
-  width: 120px;
+  height: 30vh;
+  width: 30vh;
 
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 
   display: block;
   margin-left: auto;

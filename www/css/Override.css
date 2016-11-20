@@ -47,3 +47,181 @@
   width: 2000px;
   height: 44px;
 }
+
+.smaller-btn{
+  height: 15px!important;
+  margin-left: 2px;
+}
+
+.no-pad-right a{
+  padding-right: 0!important;
+}
+
+
+
+.swapskill-checkmark {
+  display: inline-block;
+  width: calc(50% - 1px);
+  height: 54px;
+  background: url(../img/checkmark.png);
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.swapskill-cancel {
+  display: inline-block;
+  width: 50%;
+  height: 54px;
+  background: url(../img/delete.png);
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-right: 1px solid lightgray;
+}
+
+
+/*Flipping card*/
+.flip-container {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+}
+
+.flip-container.flip .flipper {
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.flip-container,
+.front,
+.back {
+  margin-bottom: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.flip-container .top,
+.front .top,
+.back .top {
+  padding: 30px 20px;
+}
+
+.flip-container .top,
+.flip-container .icon-holder,
+.front .top,
+.front .icon-holder,
+.back .top,
+.back .icon-holder {
+  background-color: #777777;
+  color: #fff;
+}
+
+.flip-container .icon-holder,
+.front .icon-holder,
+.back .icon-holder {
+  margin: -25px auto 0;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  width: 50px;
+  height: 50px;
+  padding: 7px 10px 10px;
+  font-size: x-large;
+}
+
+.front.success .top,
+.front.success .icon-holder,
+.back.success .top,
+.back.success .icon-holder {
+  background-color: #23AE89;
+  color: #fff;
+}
+/* flip speed goes here */
+
+.flipper {
+  transition: 0.6s;
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -o-transition: 0.6s;
+  -ms-transition: 0.6s;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  position: relative;
+
+  transform: translateX(-163px);
+}
+/* hide back of pane during swap */
+
+.front,
+.back {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* front pane, placed above back */
+
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+/* back, initially hidden pane */
+
+.back {
+
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg) translateX(-163px);
+
+}
+/*End Flipping card*/
+
+
+.multiple-button button{
+  float: left;
+  margin-right: 3px;
+}
+
+
+.certificate{
+  border-radius: 0;
+  margin-top: 5px;
+  width: auto;
+  height: 140px;
+  margin-bottom: 5px;
+}
+
+.cert{
+  margin-top:0.5px;
+}
+
+.prof{
+  border-bottom: none!important;
+}
+
+.super-special{
+  margin-top: 0!important;
+  margin-bottom: 1px!important;
+  margin-left: 10px!important;
+  margin-right: 10px!important;
+}
+
+.modal{
+  background-color: rgba(0,0,0,0.8);
+}

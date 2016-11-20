@@ -8,20 +8,21 @@ angular.module('starter.controllers', [])
                                 , $ionicActionSheet
                                 , $ionicPopup
                                 , TDCardDelegate
-                                , $timeout) {
+                                , $timeout
+                                ,$state
+                                ,$location) {
   $scope.like = like
   $scope.info = info
   $scope.slideHasChanged = slideHasChanged
   $scope.showProfile = showProfile
   $scope.showEditProfile = showEditProfile
   $scope.showSettings = showSettings
-  $scope.showActionSheet = showActionSheet
   $scope.slideTo = slideTo
   $scope.deviceHeight  = window.innerHeight;
 
   $scope.myToggle = true;
 
-  $scope.slideIndex = 0
+  $scope.slideIndex = 1;
 
   $scope.showConfirm = function() {
    var confirmPopup = $ionicPopup.show({
@@ -44,6 +45,18 @@ angular.module('starter.controllers', [])
 
   function slideTo(index){
     $ionicSlideBoxDelegate.slide(index);
+  }
+
+
+  $scope.pickAdam = function (msg) {
+
+
+    $location.path('tab/dash/1');
+
+    $rootScope.input={
+      message: msg
+    };
+
   }
 
   $scope.$watch(function(scope) { return scope.slideIndex },
@@ -143,6 +156,7 @@ angular.module('starter.controllers', [])
   }
   $scope.onRelease = function(){
     $ionicSlideBoxDelegate.enableSlide(true);
+    $scope.flip();
     console.log('released');
   }
 
@@ -180,26 +194,7 @@ angular.module('starter.controllers', [])
     });
   };
 
-    function showActionSheet() {
 
-      // Show the action sheet
-      var hideSheet = $ionicActionSheet.show({
-       buttons: [
-         { text: 'Mute Notifications' }
-         , { text: 'Report as Spam' }
-         , { text: 'Unmatch Ben' }
-         , { text: "Show Ben's Profile" }
-       ],
-       cancelText: '<span class="color-white">Cancel</span>',
-       cssClass: 'tinder-actionsheet',
-       cancel: function() {
-            // add cancel code..
-          },
-       buttonClicked: function(index) {
-         return true;
-       }
-     });
-  }
 
   function showEditProfile() {
     $ionicModal.fromTemplateUrl('templates/modals/edit-profile.html', {
@@ -414,8 +409,8 @@ angular.module('starter.controllers', [])
 }])
 
 // services
-.factory('MockService', ['$http', '$q',
-  function($http, $q) {
+.factory('MockService', ['$http', '$q', '$ionicActionSheet',
+  function($http, $q, $ionicActionSheet) {
     var me = {};
 
     me.getUserMessages = function(d) {
@@ -439,10 +434,34 @@ angular.module('starter.controllers', [])
     };
 
     me.getMockMessage = function() {
+      setTimeout(function () {
+        function showActionSheet() {
+
+          // Show the action sheet
+          var hideSheet = $ionicActionSheet.show({
+            buttons: [
+              { text: 'Mute Notifications' }
+              , { text: 'Report as Spam' }
+              , { text: 'Unmatch Ben' }
+              , { text: "Show Ben's Profile" }
+            ],
+            cancelText: '<span class="color-white">Cancel</span>',
+            cssClass: 'tinder-actionsheet',
+            cancel: function() {
+              // add cancel code..
+            },
+            buttonClicked: function(index) {
+              return true;
+            }
+          });
+        }
+        showActionSheet();
+      },500)
+
       return {
         userId: '534b8e5aaa5e7afc1b23e69b',
         date: new Date(),
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        text: 'Hey I was glad to be able to help you.'
       };
     }
 

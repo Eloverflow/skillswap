@@ -1,22 +1,22 @@
 <ion-modal-view>
   <ion-content>
 
-    <div id="bg" style="background-image: url('img/ben.png');">
+    <div id="bg" style="">
       <div id="search-container">
-        <div id="search-bg" style="background-image: url('img/ben.png');"></div>
-        <div id="search" style="height:{{deviceHeight}}px;">
+        <div id="search-bg" style=""></div>
+        <div id="search" style="height:{{deviceHeight}}px; background: none;">
           <h1>Its a Match!</h1>
-          <p class="font-default">You and Ben have liked each other</p>
-          <div class="text-center" style="margin-top:45px;">
-            <img ng-src="img/ben.png" style="margin-right:10px;" height="130" width="130" class="img-matched animated bounceInLeft" alt="">
-            <img ng-src="img/max.png" height="130" width="130" class="img-matched animated bounceInRight" alt="">
+          <p class="font-default">You and Adam have confirmed each other</p>
+
+          <img style="border-radius: 50%; width: 100px; margin-left: calc(50% - 50px)" ng-src="img/adam.png">
+          <div class="text-center" style="margin-top:0;">
           </div>
-          <div class="text-center match-buttons" >
-            <button ng-click="hideMatch();slideTo(2)" class="button button-block button-stable button-outline"><i class="ion-chatbubbles font-130"></i> Send Message</button>
-            <button ng-click="hideMatch()" class="button button-block button-stable button-outline" style="margin-top:17px;"><i class="ion-ios-browsers font-130"></i> Keep Playing</button>
-          </div>
-          <div class="text-center" style="margin-top:30px;">
-            <button class="button button-block button-clear button-stable font-default"><i class="ion-share font-130"></i> Tell Your Friends</button>
+          <div style="margin-top: 5px;" class="text-center match-buttons" >
+            <button ng-click="hideMatch();slideTo(2);pickAdam()" class="button button-block button-stable button-outline"><i class="ion-chatbubbles font-130"></i> Send Message</button>
+            <button ng-click="hideMatch();slideTo(2);pickAdam('Hello, my name is Ben')" class="button button-block button-stable button-small">Hello, my name is Ben</button>
+            <button ng-click="hideMatch();slideTo(2);pickAdam('Hi Adam, how are you ?')" class="button button-block button-stable button-small">Hi Adam, how are you ?</button>
+            <button ng-click="hideMatch();slideTo(2);pickAdam('Hi Adam, nice to meet you!')" class="button button-block button-stable button-small">Hi Adam, nice to meet you!</button>
+            <button ng-click="hideMatch()" class="button button-block button-stable button-outline" style="margin-top:17px;"><i class="ion-ios-browsers font-130"></i> Close</button>
           </div>
         </div>
       </div>

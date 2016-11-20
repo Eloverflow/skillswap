@@ -12,6 +12,16 @@ angular.module('starter.directives', [])
     }
   }
 })
+.directive('flipContainer', function() {
+  return {
+    restrict: 'C',
+    link: function($scope, $elem, $attrs) {
+      $scope.flip = function() {
+        $elem.toggleClass('flip');
+      }
+    }
+  };
+});
 
 Array.prototype.insert = function(index) {
     this.splice.apply(this, [index, 0].concat(
