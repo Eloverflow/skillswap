@@ -1246,3 +1246,7 @@ a.autolinker {
   color: #3b88c3;
   text-decoration: none;
 }
+
+.popup-body{
+  padding-left: 0!important;
+}

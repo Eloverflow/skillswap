@@ -26,12 +26,16 @@ angular.module('starter.controllers', [])
   $scope.slideIndex = 1;
 
   $scope.showConfirm = function() {
-   var confirmPopup = $ionicPopup.show({
-     title: 'Categories',
+   var confirmPopup = $ionicPopup.confirm({
+     title: 'Select your desired categories',
      // template: 'Are you sure you want to eat this ice cream?',
      templateUrl:'templates/popups/select-countries.html',
-     cssClass: 'animated bounceInUp dark-popup'
+     cssClass: 'animated bounceInUp dark-popup',
+     okType: 'button-small button-dark bold',
+     okText: 'Save',
+     cancelType: 'button-small'
    });
+
 
    confirmPopup.then(function(res) {
      if(res) {
@@ -41,6 +45,9 @@ angular.module('starter.controllers', [])
      }
    });
   };
+
+
+  $scope.showConfirm();
 
   //$scope.showConfirm()
 
@@ -73,10 +80,10 @@ angular.module('starter.controllers', [])
 
 
   var cardTypes = [
-    { image: 'http://c4.staticflickr.com/4/3924/18886530069_840bc7d2a5_n.jpg' },
-    { image: 'http://c1.staticflickr.com/1/421/19046467146_548ed09e19_n.jpg' },
-    // { image: 'http://c1.staticflickr.com/1/278/18452005203_a3bd2d7938_n.jpg' },
-    // { image: 'http://c1.staticflickr.com/1/297/19072713565_be3113bc67_n.jpg' },
+    { image: 'http://c4.staticflickr.com/4/3924/18886530069_840bc7d2a5_n.jpg', name: 'Adam Savage', work: 'Movie Maker', age: 24 },
+    { image: 'http://c1.staticflickr.com/1/421/19046467146_548ed09e19_n.jpg', name: 'Bob Mcdonald', work: 'Cook', age: 31},
+    { image: 'http://c1.staticflickr.com/1/278/18452005203_a3bd2d7938_n.jpg', name: 'Frank Parker', work: 'Computer Technician', age: 27},
+    { image: 'http://c1.staticflickr.com/1/297/19072713565_be3113bc67_n.jpg', name: 'John Mccormick', work: 'Administrator', age: 18 },
     // { image: 'http://lorempixel.com/500/500/' },
     // { image: 'http://c4.staticflickr.com/4/3937/19072713775_156a560e09_n.jpg' },
     // { image: 'http://c1.staticflickr.com/1/267/19067097362_14d8ed9389_n.jpg' },
