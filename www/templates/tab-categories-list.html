@@ -2,6 +2,7 @@
 <ion-header-bar align-title="center" class="bar-stable">
 
 
+
   <h1 class="title {{slideIndex ==1 ? 'color-red' : 'color-gray'}}" ng-click="slideTo(1)">
     Categories
   </h1>
@@ -21,8 +22,14 @@
       <ion-radio icon="ion-ios-checkmark color-darkgray" ng-model="choice" ng-value="7" ng-click="select('Other')">Other</ion-radio>
       <ion-radio icon="ion-ios-checkmark color-darkgray" ng-model="choice" ng-value="8" ng-click="select('Random')">Random</ion-radio>
     </ion-list>
-    <button class="button button-full button-positive">
-      Finished
-    </button>
+
+
+    <div class="bar bar-footer no-pad">
+      <button style="margin: 0;" class="button button-full button-positive">
+        Finished
+      </button>
+    </div>
+
+
   </ion-content>
 </ion-view>

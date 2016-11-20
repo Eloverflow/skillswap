@@ -493,6 +493,10 @@ angular.module('starter.controllers', [])
     $state.go('tab.dash')
   };
 
+  $scope.backToCategories = function () {
+    $state.go('tab-cat.list')
+  };
+
   $scope.select = function (category) {
     $scope.category = category;
     $state.go('tab-cat.selected')

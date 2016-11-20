@@ -1,6 +1,10 @@
 <ion-view view-title="Category" hide-nav-bar="true">
 <ion-header-bar align-title="center" class="bar-stable">
 
+  <div class="buttons" ng-click="backToCategories()">
+    <button class="button button-clear icon ion-chevron-left animated"></button>
+  </div>
+
   <h1 class="title {{slideIndex ==1 ? 'color-red' : 'color-gray'}}" ng-click="slideTo(1)">
     Category
   </h1>
@@ -12,8 +16,24 @@
         <input type="text" placeholder="{{category}}">
       </label>
       <button class="button button-small">
-        Submit
+        <i style="font-size: 20px;" class="ion ion-search">
+        </i>
       </button>
+    </div>
+    <img style="margin-top:10%;width: 120%; margin-left:-10%;margin-right:-10%;" src="img/graph.png">
+
+    <div class="bar bar-footer no-pad">
+      <ion-scroll zooming="true" direction="x">
+        <div style="width: 2000px; height: 44px;">
+          <button class="button margin-top-5 button-outline button-small button-assertive">French</button>
+          <button class="button margin-top-5 button-outline button-small button-assertive active">Nodejs</button>
+          <button class="button margin-top-5 button-outline button-small button-assertive active">Administration</button>
+          <button class="button margin-top-5 button-outline button-small button-assertive">Finance</button>
+          <button class="button margin-top-5 button-outline button-small button-assertive">French</button>
+          <button class="button margin-top-5 button-outline button-small button-assertive">French</button>
+          <button class="button margin-top-5 button-outline button-small button-assertive">French</button>
+        </div>
+      </ion-scroll>
     </div>
 
 
