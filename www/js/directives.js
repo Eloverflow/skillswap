@@ -19,6 +19,7 @@ angular.module('starter.directives', [])
       $scope.flip = function() {
         $elem.toggleClass('flip');
       }
+
     }
   };
 });

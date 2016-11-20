@@ -1,0 +1,35 @@
+<ion-modal-view>
+  <ion-content>
+
+    <div id="bg" style="background: none;">
+      <div id="search-container">
+        <div id="search-bg" style=""></div>
+        <div id="search" style="height:{{deviceHeight}}px; background: none;">
+          <h1>Rate Adam</h1>
+          <div class="text-center" style="margin-top:0;">
+              <div class="stars">
+                <form action="">
+                  <input class="star star-5" id="star-5-2" type="radio" name="star"/>
+                  <label class="star star-5" for="star-5-2"></label>
+                  <input class="star star-4" id="star-4-2" type="radio" name="star"/>
+                  <label class="star star-4" for="star-4-2"></label>
+                  <input class="star star-3" id="star-3-2" type="radio" name="star"/>
+                  <label class="star star-3" for="star-3-2"></label>
+                  <input class="star star-2" id="star-2-2" type="radio" name="star"/>
+                  <label class="star star-2" for="star-2-2"></label>
+                  <input class="star star-1" id="star-1-2" type="radio" name="star"/>
+                  <label class="star star-1" for="star-1-2"></label>
+                </form>
+            </div>
+          </div>
+          <div style="margin-top: 5px;" class="text-center match-buttons" >
+            <button class="button margin-top-5 button-outline button-small button-assertive {{ english ? '' : 'active blue'}}" ng-click="english = !english">English</button>
+            <button class="button margin-top-5 button-outline button-small button-assertive {{ juggling ? 'active blue' : ''}}" ng-click="juggling = !juggling">Juggling</button>
+            <button class="button margin-top-5 button-outline button-small button-assertive {{ skii ? 'active blue' : ''}}" ng-click="skii = !skii">Ski</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-modal-view>
