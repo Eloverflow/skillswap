@@ -303,7 +303,7 @@ label.star:before {
 
   margin: 150px 5%;
   width: 90%;
-  height: 300px!important;
+  height: 306px!important;
   min-height: 0;
   border-radius: 4px;
   background: rgba(255,255,255,1)!important;
@@ -329,4 +329,19 @@ label.star:before {
 .color-blue {
   background-color: #0a3756;
   color: white;
+}
+
+.popup-body{
+  margin-bottom: 0!important;
+}
+
+
+button.button-large{
+  line-height: 72px!important;
+  margin-left: 3px;
+}
+
+
+button.active{
+  background-color: #0a3756!important;
 }

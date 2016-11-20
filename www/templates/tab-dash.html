@@ -16,7 +16,7 @@
     <ion-slide on-drag-left="onRelease()" on-drag-right="onTouch()">
       <ion-content>
         <div class="profile-container">
-          <img ng-click="showProfile()" ng-src="img/ben.png" class="profile-image" width="100">
+          <img ng-click="showProfile()" ng-src="img/ib.jpg" class="profile-image" width="100" height="100">
           <img
             ng-click="showEditProfile()"
             ng-src="img/edit.png"
@@ -25,7 +25,7 @@
         </div>
 
           <div class="text-center padding" style="margin-top:22px;">
-            <h3>Ben</h3>
+            <h3>Isael</h3>
             <p class="color-gray">Hey i'm gona teach you life.</p>
           </div>
 
@@ -47,7 +47,7 @@
     <ion-slide>
 
           <div class="radar" ng-if="!cards.active.length" ng-click="refreshCards()">
-            <img style="border-radius: 0" ng-src="img/ben.png" width="100" height="100">
+            <img style="border-radius: 0" ng-src="img/ib.jpg" width="100" height="100">
           </div>
 
           <!-- *************************
@@ -85,11 +85,13 @@
                             </div>
                             <div class="col col-50">
                               <div class="col star-right">
+                                <i ng-show="card.id == 1" class="ion ion-ios-star-half"></i>
+                                <i ng-show="card.id == 2" class="ion ion-ios-star-outline"></i>
                                 <i class="ion ion-star"></i>
                                 <i class="ion ion-star"></i>
                                 <i class="ion ion-star"></i>
                                 <i class="ion ion-star"></i>
-                                <i class="ion ion-star"></i>
+                                <i ng-show="card.id !=1 && card.id != 2" class="ion ion-star"></i>
                             </div>
                           </div>
                         </div>
@@ -98,9 +100,18 @@
 
                       <div class="item">
                             <h2>Skills</h2>
-                            <button class="button margin-top-5 button-outline button-small button-assertive">English&nbsp;<i style="color: darkred;" class="icon ion-checkmark"></i></button>
-                            <button class="button margin-top-5 button-outline button-small button-assertive">Juggling</button>
-                            <button class="button margin-top-5 button-outline button-small button-assertive">Ski</button>
+                        <button ng-show="card.id == 1" class="button margin-top-5 button-outline button-small button-assertive">Swing&nbsp;<i style="color: darkred;" class="icon ion-checkmark"></i></button>
+                        <button ng-show="card.id == 0 || card.id == 2" class="button margin-top-5 button-outline button-small button-assertive">Juggling</button>
+                        <button ng-show="card.id == 3 || card.id == 2" class="button margin-top-5 button-outline button-small button-assertive">Ski</button>
+                        <button ng-show="card.id == 0" class="button margin-top-5 button-outline button-small button-assertive">Administration</button>
+                        <button ng-show="card.id == 0" class="button margin-top-5 button-outline button-small button-assertive">Public Speaking</button>
+                        <button ng-show="card.id == 1" class="button margin-top-5 button-outline button-small button-assertive">English</button>
+                        <button ng-show="card.id == 3" class="button margin-top-5 button-outline button-small button-assertive">Mandarin</button>
+                        <button ng-show="card.id == 1" class="button margin-top-5 button-outline button-small button-assertive">Dancing</button>
+                        <button ng-show="card.id == 1" class="button margin-top-5 button-outline button-small button-assertive">Singing</button>
+                        <button ng-show="card.id == 3" class="button margin-top-5 button-outline button-small button-assertive">Piano</button>
+                        <button ng-show="card.id == 3" class="button margin-top-5 button-outline button-small button-assertive">Skate</button>
+                        <button ng-show="card.id == 2" class="button margin-top-5 button-outline button-small button-assertive">Programming</button>
                       </div>
                       <div style="height: 54px;" class="item last no-pad">
                              <div class="swapskill-cancel" ng-click="like(false)"></div>
@@ -156,9 +167,9 @@
                       <div class="item prof">
                         <div class="row">
                           <div class="col">
-                            <h2>Adam, 26</h2>
+                            <h2>{{ card.name }}, {{card.age}}</h2>
                             <p>
-                              Ionic Engineer
+                              {{ card.work }}
                               <!-- <i class="ion-ios-book color-coral font-150 pull-right"></i> -->
                             </p>
                           </div>
@@ -170,8 +181,8 @@
 
                       <div class="item prof multiple-button">
                         <h2>Skills</h2>
-                        <button class="button margin-top-5 button-outline button-small button-assertive">English&nbsp;<i style="color: darkred;" class="icon ion-checkmark"></i></button>
-                        <button class="button margin-top-5 button-outline button-small button-assertive">Juggling</button>
+                        <button ng-show="card.id == 1" class="button margin-top-5 button-outline button-small button-assertive">English&nbsp;<i style="color: darkred;" class="icon ion-checkmark"></i></button>
+                        <button ng-show="card.id == 1 || card.id == 2 || card.id == 4" class="button margin-top-5 button-outline button-small button-assertive">Juggling</button>
                         <button class="button margin-top-5 button-outline button-small button-assertive">Ski</button>
                         <button class="button margin-top-5 button-outline button-small button-assertive">Soccer</button>
                         <button class="button margin-top-5 button-outline button-small button-assertive">Administration</button>
@@ -200,11 +211,13 @@
 
                       <div class="item prof">
                         <h2>Rating</h2>
+                          <i ng-show="card.id == 1" class="ion ion-ios-star-outline"></i>
+                          <i ng-show="card.id == 2" class="ion ion-ios-star-half"></i>
                           <i class="ion ion-star"></i>
                           <i class="ion ion-star"></i>
                           <i class="ion ion-star"></i>
                           <i class="ion ion-star"></i>
-                          <i class="ion ion-star"></i>
+                          <i ng-show="card.id !=1 && card.id != 2" class="ion ion-star"></i>
                       </div>
 
                       <hr class="super-special">
@@ -243,7 +256,7 @@
         <div class="item-input-inset">
           <label class="item-input-wrapper">
             <i class="icon ion-ios-search placeholder-icon"></i>
-            <input force-lower-case type="text" class="bold" placeholder="Search 7 Matches" ng-model="search" ng-value="search" ng-change="filterResults(search)">
+            <input force-lower-case type="text" class="bold" placeholder="Search 6 Matches" ng-model="search" ng-value="search" ng-change="filterResults(search)">
           </label>
           <button class="button button-stable button-clear" ng-click="filterResults(null);search=null">
             Cancel
@@ -251,8 +264,8 @@
         </div>
         <div class="item item-divider bg-white uppercase color-red" style="border:none;">Messages</div>
         <ion-list>
-            <ion-item class="item-light item-text-wrap item-avatar item-borderless item-icon-right no-pad-right" data-ng-repeat="blog in ['ben', 'max', 'mike', 'perry','ben', 'max', 'mike', 'perry'] track by $index" style="overflow:hidden;" ng-href="#/tab/dash/1">
-              <img ng-src="img/{{blog}}.png">
+            <ion-item class="item-light item-text-wrap item-avatar item-borderless item-icon-right no-pad-right" data-ng-repeat="blog in ['bryan', 'johny', 'hana', 'frank','ben', 'max'] track by $index" style="overflow:hidden;" ng-href="#/tab/dash/1">
+              <img ng-src="img/{{blog}}.jpg">
               <span class="capitalize font-120">{{blog}}</span>
               <button ng-show="$index == 1 || $index == 4 || $index == 6|| $index == 0" class="button button-outline button-small button-assertive smaller-btn">Roller</button>
               <button ng-show="$index == 2 || $index == 3 || $index == 4|| $index == 0" class="button button-outline button-small button-assertive smaller-btn">Ski</button>

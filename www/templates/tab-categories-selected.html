@@ -22,15 +22,17 @@
     </div>
     <img style="margin-top:10%;width: 120%; margin-left:-10%;margin-right:-10%;" src="img/graph.png">
 
-    <div class="bar bar-footer no-pad">
+    <div style="height: 80px;" class="bar bar-footer no-pad">
       <ion-scroll zooming="true" direction="x">
-        <div style="width: 2000px; height: 44px;">
-          <button class="button margin-top-5 button-outline button-small button-assertive active">Skate</button>
-            <button class="button margin-top-5 button-outline button-small button-assertive {{ ski ? 'active': ''}}" ng-click="ski = !ski">Ski</button>
-          <button class="button margin-top-5 button-outline button-small button-assertive">Roller</button>
-          <button class="button margin-top-5 button-outline button-small button-assertive">Snowboard</button>
-          <button class="button margin-top-5 button-outline button-small button-assertive">Soccer</button>
-          <button class="button margin-top-5 button-outline button-small button-assertive">Football</button>
+        <div style="width: 2000px; height: 80px;">
+          <button class="button margin-top-5 button-outline button-large button-assertive  {{ skate ? '': 'active'}}" ng-click="skate = !skate">Skate</button>
+            <button class="button margin-top-5 button-outline button-large button-assertive {{ ski ? 'active': ''}}" ng-click="ski = !ski">Ski</button>
+          <button class="button margin-top-5 button-outline  button-large button-assertive {{ roller ? 'active': ''}}" ng-click="roller = !roller">Roller</button>
+          <button class="button margin-top-5 button-outline button-large button-assertive {{ snow ? 'active': ''}}" ng-click="snow = !snow">Snowboard</button>
+          <button class="button margin-top-5 button-outline button-large button-assertive {{ soccer ? 'active': ''}}" ng-click="soccer = !soccer">Soccer</button>
+          <button class="button margin-top-5 button-outline button-large button-large button-assertive {{ foot ? 'active': ''}}" ng-click="foot = !foot">Football</button>
+          <button class="button margin-top-5 button-outline button-large button-large button-assertive {{ volley ? 'active': ''}}" ng-click="volley = !volley">Volley-Ball</button>
+          <button class="button margin-top-5 button-outline button-large button-large button-assertive {{ jugg ? 'active': ''}}" ng-click="jugg = !jugg">Juggling</button>
         </div>
       </ion-scroll>
     </div>

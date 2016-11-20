@@ -46,8 +46,10 @@ angular.module('starter.controllers', [])
    });
   };
 
+  $scope.$on("$ionicView.loaded", function(event, data){
+    $scope.showConfirm();
+  });
 
-  $scope.showConfirm();
 
   //$scope.showConfirm()
 
@@ -80,10 +82,10 @@ angular.module('starter.controllers', [])
 
 
   var cardTypes = [
-    { image: 'http://c4.staticflickr.com/4/3924/18886530069_840bc7d2a5_n.jpg', name: 'Adam Savage', work: 'Movie Maker', age: 24 },
-    { image: 'http://c1.staticflickr.com/1/421/19046467146_548ed09e19_n.jpg', name: 'Bob Mcdonald', work: 'Cook', age: 31},
-    { image: 'http://c1.staticflickr.com/1/278/18452005203_a3bd2d7938_n.jpg', name: 'Frank Parker', work: 'Computer Technician', age: 27},
-    { image: 'http://c1.staticflickr.com/1/297/19072713565_be3113bc67_n.jpg', name: 'John Mccormick', work: 'Administrator', age: 18 },
+    { id: 0,image: 'img/bryan.jpg', name: 'Bryan St-Pierre', work: 'Administrator', age: 22 },
+    { id: 1,image: 'img/hana.jpg', name: 'Hana Amer', work: 'Designer', age: 22},
+    { id: 2,image: 'img/jino.jpg', name: 'Jean Fortin-Moreau', work: 'Developer', age: 22},
+    { id: 3,image: 'img/frank.jpg', name: 'Frank Gu', work: 'Developer', age: 24 },
     // { image: 'http://lorempixel.com/500/500/' },
     // { image: 'http://c4.staticflickr.com/4/3937/19072713775_156a560e09_n.jpg' },
     // { image: 'http://c1.staticflickr.com/1/267/19067097362_14d8ed9389_n.jpg' },
@@ -245,15 +247,15 @@ angular.module('starter.controllers', [])
     // mock acquiring data via $stateParams
     $scope.toUser = {
       _id: '534b8e5aaa5e7afc1b23e69b',
-      pic: 'http://ionicframework.com/img/docs/venkman.jpg',
-      username: 'Venkman'
+      pic: 'img/frank.jpg',
+      username: 'Frank'
     }
 
     // this could be on $rootScope rather than in $stateParams
     $scope.user = {
       _id: '534b8fb2aa5e7afc1b23e69c',
-      pic: 'http://ionicframework.com/img/docs/mcfly.jpg',
-      username: 'Marty'
+      pic: 'img/ib.jpg',
+      username: 'Isael'
     };
 
     $scope.input = {
@@ -521,5 +523,5 @@ angular.module('starter.controllers', [])
 });
 
 function getMockMessages() {
-  return {"messages":[{"_id":"535d625f898df4e80e2a125e","text":"Hello my name is Ben","userId":"534b8fb2aa5e7afc1b23e69c","date":"2014-04-27T20:02:39.082Z","read":true,"readDate":"2014-12-01T06:27:37.944Z"},{"_id":"535f13ffee3b2a68112b9fc0","text":"Hi ben how can I help you ?","userId":"534b8e5aaa5e7afc1b23e69b","date":"2014-04-29T02:52:47.706Z","read":true,"readDate":"2014-12-01T06:27:37.944Z"}],"unread":0};
+  return {"messages":[{"_id":"535d625f898df4e80e2a125e","text":"Hello, my name is Isael","userId":"534b8fb2aa5e7afc1b23e69c","date":"2014-04-27T20:02:39.082Z","read":true,"readDate":"2014-12-01T06:27:37.944Z"},{"_id":"535f13ffee3b2a68112b9fc0","text":"Hi Iseal how can I help you ?","userId":"534b8e5aaa5e7afc1b23e69b","date":"2014-04-29T02:52:47.706Z","read":true,"readDate":"2014-12-01T06:27:37.944Z"}],"unread":0};
 }
